@@ -1,4 +1,4 @@
-https://dashboard.heroku.com/new?template=https://github.com/developeranaz/heroku-nginx-docker-container
+https://dashboard.heroku.com/new?template=https://github.com/developeranaz/heroku-aria2-rclone
 # heroku-nginx-rclone-aria2
 Dep
 
