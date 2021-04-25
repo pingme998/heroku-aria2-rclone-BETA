@@ -1,0 +1,11 @@
+FROM nginx:alpine
+#RUN apt update -y
+#RUN apt install aria2 -y
+
+COPY nginx/default.conf /etc/nginx/conf.d/
+COPY html/ /usr/share/nginx/html/
+CMD aria2c --conf-path=/etc/aria2.conf
+
+RUN apk add --update --no-cache aria2 && rm -rf /var/cache/apk/*
+RUN aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800 --rpc-secret=SomethingU -D
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
