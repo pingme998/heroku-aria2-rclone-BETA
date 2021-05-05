@@ -3,7 +3,7 @@ FROM nginx:alpine
 #RUN apt install aria2 -y
 
 COPY nginx/default.conf /etc/nginx/conf.d/
-#COPY html/ /usr/share/nginx/html/
+COPY html/ /usr/share/nginx/html/
 #CMD aria2c --conf-path=/etc/aria2/aria2.conf
 
 
