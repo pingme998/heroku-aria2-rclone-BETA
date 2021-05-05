@@ -1,6 +1,6 @@
 FROM nginx:alpine
 RUN apt update -y
-RUN apt install aria2
+RUN apt install aria2 -y
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY html/ /usr/share/nginx/html/
