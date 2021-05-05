@@ -1,7 +1,11 @@
 FROM nginx:alpine
 RUN apk update
 RUN apk add aria2
-RUN apk add python3-pip
+# Install python/pip
+#ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
 COPY nginx/default.conf /etc/nginx/conf.d/
 COPY html/ /usr/share/nginx/html/
 #CMD aria2c --conf-path=/etc/aria2/aria2.conf
