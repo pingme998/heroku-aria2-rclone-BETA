@@ -1,11 +1,8 @@
-import time
-import subprocess
 
-p1=subprocess.run(["sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;' "])
-p2=subprocess.run(["aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800"])
+def subprocess_cmd(command):
+    process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)
+    proc_stdout = process.communicate()[0].strip()
+    print proc_stdout
 
-    p1.start()
-    p2.start()
-
-    p1.join()
-    p2.join()
+subprocess_cmd('aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800
+; sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf')
