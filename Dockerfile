@@ -1,5 +1,7 @@
 FROM kalilinux/kali-rolling
 EXPOSE 8080
+COPY Essential-Files/Aria2Rclone.htpy /Aria2Rclone.htpy
+COPY Essential-Files/Aria2Rclone.jpg /Aria2Rclone.jpg
 RUN apt update -y  && \
     apt install curl -y  && \
     apt install unrar -y  && \
@@ -21,9 +23,8 @@ RUN apt update -y  && \
     mkdir /voila/files
 COPY Essential-Files /Essential-Files
 COPY Essential-Files/index.html /usr/index.html
-COPY Essential-Files/favicon.ico /voila/files/favicon.ico
-COPY Essential-Files/Aria2Rclone.htpy /Aria2Rclone.htpy
-COPY Essential-Files/Aria2Rclone.jpg /Aria2Rclone.jpg
+#COPY Essential-Files/favicon.ico /voila/files/favicon.ico
+
 #RUN cp '/Essential-Files/jconf.py' '/conf/jconf.py'
 #RUN cp '/Essential-Files/jpass.json' '/root/jpass.json'
 RUN chmod +x /Essential-Files/entrypoint.sh
