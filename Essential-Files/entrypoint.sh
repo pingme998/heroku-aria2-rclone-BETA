@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 rclone version
 rclone listremotes > remotes.txt
 
