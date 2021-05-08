@@ -1,4 +1,7 @@
-https://dashboard.heroku.com/new?template=https://github.com/developeranaz/heroku-aria2-rclone
+# Beta Project may Fails
+Stable working version available https://github.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU
+
+
 # heroku-nginx-rclone-aria2
 Dep
 
