@@ -1,21 +1,28 @@
-FROM nginx:alpine
-RUN apk update
-RUN apk add aria2
-# Install python/pip
-#ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-COPY nginx/default.conf /etc/nginx/conf.d/
-COPY html/ /usr/share/nginx/html/
-#CMD aria2c --conf-path=/etc/aria2/aria2.conf
-
-
-RUN apk add --update --no-cache aria2 && rm -rf /var/cache/apk/*
-COPY aria2.conf /etc/aria2/aria2.conf
-COPY aria2.service /etc/systemd/system/aria2.service
-#RUN aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6801  --rpc-secret=SomethingU -D
-#CMD aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800 --rpc-secret=SomethingSecure 
-#CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;' & aria2c --dir=/home --enable-rpc=true --rpc-allow-origin-all=true --rpc-listen-all=true --rpc-listen-port=6800
-COPY sub.py /sub.py
-CMD python3 /sub.py
+FROM kalilinux/kali-rolling
+EXPOSE 8080
+RUN apt update -y  && \
+    apt install curl -y  && \
+    apt install unrar -y  && \
+    apt install unzip -y  && \
+    curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
+    unzip rclone-current-linux-amd64.zip && \
+    cp /rclone-*-linux-amd64/rclone /usr/bin/ && \
+    chown root:root /usr/bin/rclone && \
+    chmod 755 /usr/bin/rclone && \
+    apt install aria2 -y && \
+    apt install wget -y && \
+    apt install pip -y && \
+    pip install jupyter && \
+    pip install voila && \
+    pip install ipywidgets && \
+    pip install widgetsnbextension && \
+    mkdir /Essential-Files && \
+    mkdir /voila && \
+    mkdir /voila/files
+COPY Essential-Files /Essential-Files
+COPY Essential-Files/index.html /usr/index.html
+COPY Essential-Files/favicon.ico /voila/files/favicon.ico
+#RUN cp '/Essential-Files/jconf.py' '/conf/jconf.py'
+#RUN cp '/Essential-Files/jpass.json' '/root/jpass.json'
+RUN chmod +x /Essential-Files/entrypoint.sh
+CMD /Essential-Files/entrypoint.sh
