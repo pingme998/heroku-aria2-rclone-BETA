@@ -2,8 +2,10 @@
 Stable working version available https://github.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU
 
 
-# heroku-nginx-rclone-aria2
-Dep
+# Goals
+* add config url before deploy
+* Place Cloudnames/Remote in selector widget
+* Email after upload complete
 
 ## Deploy
 
