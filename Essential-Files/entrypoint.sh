@@ -1,9 +1,8 @@
 #!/bin/bash
 
 rclone version
-rclone listremotes > remotes.txt
-
-
+rclone listremotes > remotesch.txt
+sed 's/.$//' remotesch.txt > remotes.txt
 while read line
 do
    my_var="$my_var, '$line'"
@@ -12,8 +11,6 @@ done < remotes.txt
 my_var="${my_var#, }"              
 
 echo "$my_var"
-
-
 
 OLD=REMOTCLOUD
 sed "s|$OLD|$my_var|g" /Essential-Files/Aria2Rclone.ipynb>Aria2Rclone.ipynb
