@@ -1,9 +1,21 @@
 {
-  "name": "heroku-nginx-docker-container",
-  "description": "Deploy nginx docker container to heroku",
-  "repository": "https://github.com/muhammadhanif/heroku-nginx-docker-container",
-  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg",
-  "website": "https://github.com/muhammadhanif/heroku-nginx-docker-container",
-  "keywords": ["nginx", "docker", "container"],
+  "name": "UNLISTED",
+  "description": "unlisted.",
+  "logo": "https://forum.rclone.org/uploads/default/original/2X/0/0f430bb0f2f7a9ed020a9e93c89f4d332adcac4b.gif",
+  "keywords": ["nginx", "mega fileindex", "mega", "mega.nz", "megaindex", "mega.nz-index", "mega-dl", "mega.nz-downloader", "mega-backdoor", "megaindex-backdoor", "rclone", "index"],
+  "env": {
+     "betaVar1": {
+      "description": "someconfigs",
+      "value": "Eu here"
+    },
+     "betaVar2": {
+      "description": "someconfig",
+      "value": "uk"
+    }
+
+
+  },
+  "website": "",
+  "repository": "",
   "stack": "container"
-}
+ }
