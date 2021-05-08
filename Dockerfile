@@ -22,6 +22,8 @@ RUN apt update -y  && \
 COPY Essential-Files /Essential-Files
 COPY Essential-Files/index.html /usr/index.html
 COPY Essential-Files/favicon.ico /voila/files/favicon.ico
+COPY Essential-Files/Aria2Rclone.htpy /Aria2Rclone.htpy
+COPY Essential-Files/Aria2Rclone.jpg /Aria2Rclone.jpg
 #RUN cp '/Essential-Files/jconf.py' '/conf/jconf.py'
 #RUN cp '/Essential-Files/jpass.json' '/root/jpass.json'
 RUN chmod +x /Essential-Files/entrypoint.sh
