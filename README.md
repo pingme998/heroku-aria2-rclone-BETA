@@ -2,7 +2,7 @@
 Stable working version available https://github.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU
 
 
-# Goals
+# Goals of Beta version
 * add config url before deploy
 * Place Cloudnames/Remote in selector widget
 * Email after upload complete
