@@ -23,7 +23,7 @@ RUN apt update -y  && \
     mkdir /voila/files
 COPY Essential-Files /Essential-Files
 COPY Essential-Files/index.html /usr/index.html
-#COPY Essential-Files/favicon.ico /voila/files/favicon.ico
+COPY Essential-Files/favicon.ico /voila/files/favicon.ico
 
 #RUN cp '/Essential-Files/jconf.py' '/conf/jconf.py'
 #RUN cp '/Essential-Files/jpass.json' '/root/jpass.json'
