@@ -1,5 +1,5 @@
 #!/bin/bash
-wget 'https://gist.githubusercontent.com/developeranaz/fb2150cc762fcdb7045dfe83a1439de3/raw/9a80dfaed40e9120a75513b1a1eb9d90f0914bf3/rclon.conf' -O /.config/rclone/rclone.conf
+wget $betaVar1 -O /.config/rclone/rclone.conf
 rclone version
 rclone listremotes > remotesch.txt
 sed 's/.$//' remotesch.txt > remotes.txt
