@@ -2,7 +2,9 @@
 
 # Beta Project may Fails
 Stable working version available https://github.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU
-
+# Repo Under testing 
+* Config Fused inside Heroku (completed)
+* trying to resolve magnet download stucks (not completed)
 
 # Goals of Beta version
 * add config url before deploy
