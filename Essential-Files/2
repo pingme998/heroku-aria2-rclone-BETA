@@ -39,7 +39,7 @@
     "        #! wget -nc {config.value} -O '/.config/rclone/rclone.conf'\n",
     "        ! rclone copy /Essential-Files/d {cloudname.value}:\n",
     "        clear_output()\n",
-    "        ! aria2c -x{threats.value} '{toruri.value}'\n",
+    "        ! tget '{toruri.value}'\n",
     "        ! rclone copy --progress --stats-one-line /home/{cloudname.value} {cloudname.value}:\n",
     "        print(f\"Your file uploaded to {cloudname.value} at {threats.value} x threads\")\n",
     "button_send.on_click(on_button_clicked)\n",
