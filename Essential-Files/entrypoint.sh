@@ -17,4 +17,4 @@ cat remotes05.txt >> 1.htpy
 cat 2 >>1.htpy
 mv /1.htpy  /Aria2Rclone.ipynb
 curl 'https://raw.githubusercontent.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU/main/Essential-Files/d/donate.developeranaz.txt'
-voila --port=$PORT --no-browser /Aria2Rclone.ipynb --theme=dark
+voila --port=$PORT --no-browser /Aria2Rclone.ipynb --enable_nbextensions=True --theme=dark
