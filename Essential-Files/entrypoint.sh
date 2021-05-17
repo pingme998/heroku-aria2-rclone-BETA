@@ -1,22 +1,22 @@
 #!/bin/bash
-wget $betaVar1 -O /.config/rclone/rclone.conf
 rclone version
-rclone listremotes > remotesch.txt
-sed 's/.$//' remotesch.txt > remotes.txt
-while read line
-do
-   my_var="$my_var, '$line'"
-done < remotes.txt
-
-my_var="${my_var#, }"              
-
-echo "$my_var"
-
-OLD=REMOTCLOUD
-sed "s|$OLD|$my_var|g" /Aria2Rclone.htpy >/Aria2Rclone.ipynb
-
+mkdir /.config
+mkdir /.config/rclone/
+wget -nc $CONFIG_FILE_IN_URL -O '/.config/rclone/rclone.conf'
+rclone version
+rclone version
+rclone listremotes > remotes.txt
+sed -i 's/.$//' remotes.txt
+sed "s/[^ ][^ ]*/'&'/g" remotes.txt >remotes01.txt
+sed '$!s/$/,/' remotes01.txt >remotes02.txt
+sed -e 's/$/ \\/' remotes02.txt >remotes03.txt
+sed -i s/$/n/ remotes03.txt
+sed 's/\(.*\)/"\1"/g' remotes03.txt >remotes04.txt
+sed 's/$/,/' remotes04.txt >remotes05.txt
+cat remotes05.txt >> 1.htpy
+cat 2 >>1.htpy
+mv /1.htpy  /Aria2Rclone.ipynb
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
 jupyter serverextension enable voila --sys-prefix
 curl 'https://raw.githubusercontent.com/developeranaz/Aria2-Rclone-Remote-Uploader-HEROKU/main/Essential-Files/d/donate.developeranaz.txt'
-voila --port=$PORT --no-browser  /Aria2Rclone.ipynb --theme=dark
-#jupyter notebook --ip=0.0.0.0 --port=$PORT --NotebookApp.token='' --NotebookApp.password=''
+voila --port=$PORT --no-browser /Aria2Rclone.ipynb --theme=dark
