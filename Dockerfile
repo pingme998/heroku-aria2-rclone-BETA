@@ -14,7 +14,7 @@ RUN apt update -y  && \
     apt install aria2 -y && \
     apt install wget -y && \
     apt install pip -y && \
-    pip install jupyter && \
+    #pip install jupyter && \
     pip install voila && \
     pip install ipywidgets && \
     pip install widgetsnbextension && \
