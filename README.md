@@ -10,8 +10,7 @@ Stable working version available https://github.com/developeranaz/Aria2-Rclone-R
 * trying to resolve magnet download stucks (not completed)
 
 # Goals of Beta version
-* add config url before deploy
-* Place Cloudnames/Remote in selector widget
+* torrent seedbug fix
 * Email after upload complete
 
 ## Deploy
